@@ -13,6 +13,7 @@ const onClickButton= (routerName:RouteLocationRaw) => {
     <el-button @click="onClickButton('/lunbo')">轮播图的使用</el-button>
     <el-button @click="onClickButton('/pagination')">分页页签使用</el-button>
     <el-button @click="onClickButton('/pageloadbyindex')">通过页签分页例子</el-button>
+    <el-button @click="onClickButton('/pageloadbyloadmore')">通过上拉加载更多例子</el-button>
   </div>
 </template>
 

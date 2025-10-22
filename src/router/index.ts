@@ -4,6 +4,7 @@ import Layoutdemo from "@/views/layoutdemo.vue";
 import Lunbodemo from "@/views/lunbodemo.vue";
 import Paginationdemo from "@/views/paginationdemo.vue";
 import Pageloadbyindex from "@/views/pageloadbyindex.vue";
+import Pageloadbyloadmore from "@/views/pageloadbyloadmore.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,6 +37,11 @@ const router = createRouter({
       path:'/pageloadbyindex',
       name:'pageloadbyindex',
       component:Pageloadbyindex
+    },
+    {
+      path:'/pageloadbyloadmore',
+      name:'pageloadbyloadmore',
+      component:Pageloadbyloadmore
     },
 /*    {//异步加载
       path: '/about',
