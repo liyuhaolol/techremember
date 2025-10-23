@@ -30,4 +30,8 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+    server: {
+      host: '0.0.0.0', // 监听所有网卡
+      port: 5173        // 可选：修改端口
+    }
 })

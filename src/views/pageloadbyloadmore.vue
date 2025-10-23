@@ -6,15 +6,21 @@ import type { ScrollbarDirection } from 'element-plus'
 const num = ref(30)
 
 const isLoading = ref(false)
+const isEndMore = ref(false)
 
 const loadMore = (direction: ScrollbarDirection) => {
   console.log("触发loadMore，方向",direction)
+  if (isLoading.value || isEndMore.value) return
   if (direction === 'bottom') {
-    isLoading.value = true
-    setTimeout(() => {
-      isLoading.value = false
-      num.value += 5
-    }, 2000)
+    if (num.value < 50) {
+      isLoading.value = true
+      setTimeout(() => {
+        isLoading.value = false
+        num.value += 5
+      }, 2000)
+    }else{
+      isEndMore.value = true
+    }
   }
 }
 </script>
@@ -26,16 +32,9 @@ const loadMore = (direction: ScrollbarDirection) => {
         {{ item }}
       </p>
       <!-- 加载占位 -->
-<!--      <div class="loading-placeholder">
-        <el-icon class="is-loading"><i-ep-loading /></el-icon>
-        <span>加载中...</span>
-      </div>-->
       <p v-if="isLoading" class="scrollbar-demo-item">加载中...</p>
-
       <!-- 无更多数据 -->
-<!--      <div class="no-more">
-        没有更多数据了
-      </div>-->
+      <p v-if="isEndMore" class="scrollbar-demo-item">没有更多数据了</p>
     </el-scrollbar>
   </div>
 </template>
