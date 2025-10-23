@@ -8,14 +8,18 @@ const onClickButton= (routerName:RouteLocationRaw) => {
 </script>
 
 <template>
-  <div>
+  <div class="container">
     <el-button @click="onClickButton('/layout')">布局的使用</el-button>
     <el-button @click="onClickButton('/lunbo')">轮播图的使用</el-button>
     <el-button @click="onClickButton('/pagination')">分页页签使用</el-button>
     <el-button @click="onClickButton('/pageloadbyindex')">通过页签分页例子</el-button>
     <el-button @click="onClickButton('/pageloadbyloadmore')">通过上拉加载更多例子</el-button>
+    <el-button @click="onClickButton('/menu/setting')">菜单页</el-button>
   </div>
 </template>
 
 <style scoped lang="scss">
+.container{
+  padding: 8px;
+}
 </style>

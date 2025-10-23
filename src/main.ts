@@ -1,3 +1,4 @@
+import "@/assets/global-style.css"
 import "@/assets/global-color.css"
 
 import { createApp } from 'vue'
