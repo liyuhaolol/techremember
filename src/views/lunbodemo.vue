@@ -9,7 +9,6 @@ import 'swiper/css';
 import 'swiper/css/navigation'
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-//import 'swiper/swiper-bundle.css';
 
 const onSwiper = (swiper:any) => {
   console.log(swiper);
@@ -83,5 +82,30 @@ h3{
 
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
+}
+
+/* 分页容器的整体位置（可调整上下左右间距） */
+:deep(.swiper-pagination) {
+  bottom: 15px !important; /* 调整分页点与底部的距离 */
+  text-align: center;
+}
+
+/* 普通分页点 */
+:deep(.swiper-pagination-bullet) {
+  width: 10px;
+  height: 10px;
+  background-color: #ff0000;
+  opacity: 0.6;
+  margin: 0 5px !important; /* 控制间距 */
+  border-radius: 50%; /* 圆形 */
+  transition: all 0.3s;
+}
+
+/* 激活的分页点 */
+:deep(.swiper-pagination-bullet-active) {
+  background-color: #000000; /* 改为蓝色 */
+  width: 20px; /* 可拉长为椭圆 */
+  border-radius: 10px; /* 椭圆形效果 */
+  opacity: 1;
 }
 </style>
