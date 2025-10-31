@@ -4,8 +4,12 @@
 -->
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-//import 'swiper/css';
+import {Navigation, Pagination, Scrollbar, A11y, Autoplay} from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation'
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+//import 'swiper/swiper-bundle.css';
 
 const onSwiper = (swiper:any) => {
   console.log(swiper);
@@ -30,14 +34,25 @@ const onSlideChange = () => {
     </el-carousel>
     <p>swiper模式</p>
     <swiper
-        :slides-per-view="6"
-        :space-between="50"
+        :modules="[Autoplay,Navigation,Pagination]"
+        :slides-per-view="1"
+        :loop="true"
         navigation
+        :pagination="{ clickable: true }"
+        :scrollbar="{ draggable: true }"
+        :autoplay="{
+          delay: 3000 ,
+          pauseOnMouseEnter:true,
+          disableOnInteraction:false}"
         @swiper="onSwiper"
         @slideChange="onSlideChange"
     >
-      <swiper-slide class="swiper-slide" v-for="(item,index) in 6" :key="index">
-        Slide{{index+1}}
+      <swiper-slide
+          class="swiper-slide"
+          :class="`slide-${index % 2}`"
+          v-for="(item,index) in 4"
+          :key="index">
+        <h3>Slide{{index+1}}</h3>
       </swiper-slide>
     </swiper>
   </div>
@@ -45,13 +60,21 @@ const onSlideChange = () => {
 
 <style scoped lang="scss">
 .el-carousel__item {
-  h3{
-    color: #475669;
-    opacity: 0.75;
-    line-height: 150px;
-    margin: 0;
-    text-align: center;
-  }
+}
+
+h3{
+  color: #475669;
+  opacity: 0.75;
+  line-height: 150px;
+  margin: 0;
+  text-align: center;
+}
+
+.slide-0 {
+  background-color: #d3dce6;
+}
+.slide-1 {
+  background-color: #99a9bf;
 }
 
 .el-carousel__item:nth-child(2n) {
