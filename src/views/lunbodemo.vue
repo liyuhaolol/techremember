@@ -1,8 +1,18 @@
 <!--
 文档地址：https://element-plus.org/zh-CN/component/carousel
+文档地址：https://swiperjs.com/vue
 -->
 <script setup lang="ts">
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+//import 'swiper/css';
 
+const onSwiper = (swiper:any) => {
+  console.log(swiper);
+};
+const onSlideChange = () => {
+  console.log('slide change');
+};
 </script>
 
 <template>
@@ -18,6 +28,18 @@
         <h3>{{ item }}</h3>
       </el-carousel-item>
     </el-carousel>
+    <p>swiper模式</p>
+    <swiper
+        :slides-per-view="6"
+        :space-between="50"
+        navigation
+        @swiper="onSwiper"
+        @slideChange="onSlideChange"
+    >
+      <swiper-slide class="swiper-slide" v-for="(item,index) in 6" :key="index">
+        Slide{{index+1}}
+      </swiper-slide>
+    </swiper>
   </div>
 </template>
 
