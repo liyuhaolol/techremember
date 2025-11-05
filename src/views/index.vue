@@ -15,6 +15,7 @@ const onClickButton= (routerName:RouteLocationRaw) => {
     <el-button @click="onClickButton('/pageloadbyindex')">通过页签分页例子</el-button>
     <el-button @click="onClickButton('/pageloadbyloadmore')">通过上拉加载更多例子</el-button>
     <el-button @click="onClickButton('/menu/setting')">菜单页</el-button>
+    <el-button @click="onClickButton('/data')">组件通信</el-button>
   </div>
 </template>
 

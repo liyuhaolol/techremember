@@ -12,6 +12,7 @@ import Function from "@/views/menu/pages/function.vue";
 import Home2 from "@/views/menu/pages/home2.vue";
 import Home3 from "@/views/menu/pages/home3.vue";
 import Home4 from "@/views/menu/pages/home4.vue";
+import Datademo from "@/views/datademo.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -92,6 +93,11 @@ const router = createRouter({
           meta: { menuIndex: '2' }
         },
       ]
+    },
+    {
+      path:'/data',
+      name:'data',
+      component:Datademo
     },
 /*    {//异步加载
       path: '/about',

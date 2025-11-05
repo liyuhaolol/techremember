@@ -36,7 +36,7 @@ const onSlideChange = () => {
         :modules="[Autoplay,Navigation,Pagination]"
         :slides-per-view="1"
         :loop="true"
-        navigation
+        :navigation="{enabled:false}"
         :pagination="{ clickable: true }"
         :scrollbar="{ draggable: true }"
         :autoplay="{
